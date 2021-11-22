@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SE_Bank.Models;
+using SE_Bank.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace SE_Bank.Controllers
 
         public IActionResult ProcessLogin(UserModel userModel)
         {
-            if(userModel.UserName == "ana" && userModel.Password == "0000")
+            SecurityService securityService = new SecurityService();
+            if(securityService.IsValid(userModel))
             {
                 return View("LoginSuccess", userModel);
             }
