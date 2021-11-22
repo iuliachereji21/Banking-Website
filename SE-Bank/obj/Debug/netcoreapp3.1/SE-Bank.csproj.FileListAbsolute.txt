@@ -1,5 +1,4 @@
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\appsettings.Development.json
-D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\appsettings.json
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\SE-Bank.exe
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\SE-Bank.deps.json
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\SE-Bank.runtimeconfig.json
