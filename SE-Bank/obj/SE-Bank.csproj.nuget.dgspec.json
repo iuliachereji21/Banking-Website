@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FACULTATE\\AN3SEM1\\SE\\SE-Bank\\SE-Bank\\SE-Bank.csproj": {}
+    "D:\\se\\SE-bank\\SE-Bank\\SE-Bank\\SE-Bank.csproj": {}
   },
   "projects": {
-    "D:\\FACULTATE\\AN3SEM1\\SE\\SE-Bank\\SE-Bank\\SE-Bank.csproj": {
+    "D:\\se\\SE-bank\\SE-Bank\\SE-Bank\\SE-Bank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FACULTATE\\AN3SEM1\\SE\\SE-Bank\\SE-Bank\\SE-Bank.csproj",
+        "projectUniqueName": "D:\\se\\SE-bank\\SE-Bank\\SE-Bank\\SE-Bank.csproj",
         "projectName": "SE-Bank",
-        "projectPath": "D:\\FACULTATE\\AN3SEM1\\SE\\SE-Bank\\SE-Bank\\SE-Bank.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FACULTATE\\AN3SEM1\\SE\\SE-Bank\\SE-Bank\\obj\\",
+        "projectPath": "D:\\se\\SE-bank\\SE-Bank\\SE-Bank\\SE-Bank.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "D:\\se\\SE-bank\\SE-Bank\\SE-Bank\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,7 +30,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -44,7 +41,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -63,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
