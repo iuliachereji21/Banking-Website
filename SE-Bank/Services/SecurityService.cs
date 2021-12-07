@@ -19,7 +19,11 @@ namespace SE_Bank.Services
         public UserModel IsValid(UserModel user)
         {
             return usersDAO.FindUserByNameAndPassword(user);
-            
+        }
+
+        public UserModel IsValidRegister(UserModel user)
+        {
+            return usersDAO.addNewUser(user);
         }
     }
 }
