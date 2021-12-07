@@ -21,7 +21,13 @@ namespace SE_Bank.Controllers
             UserModel myUser = securityService.IsValid(userModel);
             if (myUser!=null)
             {
-                return View("LoginSuccess", myUser);
+                if (myUser.IsAdmin == 0)
+                {
+                    return View("LoginSuccess", myUser);
+                }
+                else { 
+                    return View("AdminPage", myUser);
+                }
             }
             else
             {
