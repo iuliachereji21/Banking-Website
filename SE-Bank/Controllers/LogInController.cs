@@ -18,9 +18,10 @@ namespace SE_Bank.Controllers
         public IActionResult ProcessLogin(UserModel userModel)
         {
             SecurityService securityService = new SecurityService();
-            if(securityService.IsValid(userModel))
+            UserModel myUser = securityService.IsValid(userModel);
+            if (myUser!=null)
             {
-                return View("LoginSuccess", userModel);
+                return View("LoginSuccess", myUser);
             }
             else
             {

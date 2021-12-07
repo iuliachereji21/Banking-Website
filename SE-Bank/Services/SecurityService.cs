@@ -16,7 +16,7 @@ namespace SE_Bank.Services
            
         }
 
-        public bool IsValid(UserModel user)
+        public UserModel IsValid(UserModel user)
         {
             return usersDAO.FindUserByNameAndPassword(user);
             
