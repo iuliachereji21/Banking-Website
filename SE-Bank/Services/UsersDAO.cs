@@ -11,9 +11,9 @@ namespace SE_Bank.Services
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Bank_DataBase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public bool FindUserByNameAndPassword(UserModel user)
+        public UserModel FindUserByNameAndPassword(UserModel user)
         {
-            bool success = false;
+            //bool success = false;
             string sqlStatement = "SELECT * FROM dbo.Users WHERE UserName=@username AND Password=@password";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -30,7 +30,16 @@ namespace SE_Bank.Services
 
                     if (reader.HasRows)
                     {
-                        success = true;
+                        //success = true;
+                        UserModel userToReturn = new UserModel();
+                        while (reader.Read())
+                        {
+                            userToReturn.Id = Convert.ToInt32(reader["Id"]);
+                            userToReturn.UserName = user.UserName;
+                            userToReturn.Password = user.Password;
+                            userToReturn.Ballance = (float)Convert.ToDouble(reader["Ballance"]);
+                        }
+                        return userToReturn;
                     }
                 }
                 catch (Exception e)
@@ -39,7 +48,8 @@ namespace SE_Bank.Services
                 }
                
             }
-            return success;
+            //return success;
+            return null;
 
         }
     }
