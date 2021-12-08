@@ -18,6 +18,7 @@ namespace SE_Bank.Controllers
         [HttpPost]
         public IActionResult TransferMoney(string usernameTransfer, string amountTransfer)
         {
+            //aaaaaaaaaaaaaa
             return View("TransferResult",new Models.TransactionModel());
         }
     }
