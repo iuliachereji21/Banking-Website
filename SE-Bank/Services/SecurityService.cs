@@ -11,6 +11,7 @@ namespace SE_Bank.Services
     {
       
         UsersDAO usersDAO = new UsersDAO();
+        TransactionsDAO transactionsDAO = new TransactionsDAO();
         public SecurityService()
         {
            
@@ -29,6 +30,16 @@ namespace SE_Bank.Services
         public UserModel IsValidUsername(UserModel user)
         {
             return usersDAO.FindUserByUsername(user);
+        }
+
+        public UserModel UpdateUser(UserModel user)
+        {
+            return usersDAO.updateUser(user);
+        }
+
+        public TransactionModel addTransaction(TransactionModel transaction)
+        {
+            return transactionsDAO.addTransaction(transaction);
         }
     }
 }

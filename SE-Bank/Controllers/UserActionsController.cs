@@ -18,8 +18,9 @@ namespace SE_Bank.Controllers
         }
 
         [HttpPost]
-        public IActionResult TransferMoney(string usernameTransfer, string amountTransfer)
+        public IActionResult TransferMoney(string usernameTransfer, string amountTransfer, string usernameCurrentUser,UserModel currentUser)
         {
+            User = currentUser;
             SecurityService securityService = new SecurityService();
             UserModel myUser = new UserModel();
             myUser.UserName = usernameTransfer;
@@ -37,7 +38,14 @@ namespace SE_Bank.Controllers
                         transaction.SenderId = User.Id;
                         transaction.ReceiverId = myUser.Id;
                         transaction.Amount = sum;
+                        securityService.addTransaction(transaction);
                         User.Ballance = User.Ballance - sum;
+                        securityService.UpdateUser(User);
+                        myUser.Ballance = myUser.Ballance + sum;
+                        securityService.UpdateUser(myUser);
+
+                        return Index();
+
                     }
                     else
                     {

@@ -9,7 +9,7 @@ namespace SE_Bank.Services
 {
     public class UsersDAO
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\DataBase\Bank_DataBase.mdf;Integrated Security=True;Connect Timeout=30";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\FACULTATE\AN3SEM1\SE\SE-BANK\SE-BANK\DATABASE\BANK_DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public UserModel FindUserByNameAndPassword(UserModel user)
         {
             //bool success = false;
@@ -52,7 +52,7 @@ namespace SE_Bank.Services
             return null;
         }
 
-        private UserModel FindUserByUsername(UserModel user)
+        public UserModel FindUserByUsername(UserModel user)
         {
             //bool success = false;
             string sqlStatement = "SELECT * FROM dbo.Users WHERE UserName=@username";
@@ -122,6 +122,40 @@ namespace SE_Bank.Services
 
             }
             //return success;
+            return null;
+        }
+        public UserModel updateUser(UserModel user)
+        {
+            UserModel myUser = FindUserByUsername(user);
+            if (myUser == null)
+            { //didn't find
+                return null;
+            }
+            string sqlStatement = "update dbo.Users set UserName = '@username', Password = '@password', Ballance = '@ballance', IsAdmin = '@isadmin' where id = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
+                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = user.Password;
+                command.Parameters.Add("@ballance", System.Data.SqlDbType.Float).Value = user.Ballance;
+                command.Parameters.Add("@isadmin", System.Data.SqlDbType.Int).Value = user.IsAdmin;
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    return FindUserByNameAndPassword(user);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+            
             return null;
         }
     }

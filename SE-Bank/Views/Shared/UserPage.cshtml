@@ -20,7 +20,7 @@
     </dl>
 </div>
 <div style="position:absolute">
-    @using (Html.BeginForm("TransferMoney","UserActions"))
+    @using (Html.BeginForm("TransferMoney","UserActions",Model))
     {
     <input type="text" name="usernameTransfer" placeholder="Enter the user name " />
     <input type="text" name="amountTransfer" placeholder="Enter the sum of money" />
