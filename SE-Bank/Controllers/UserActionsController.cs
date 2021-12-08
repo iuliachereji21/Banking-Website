@@ -9,14 +9,16 @@ namespace SE_Bank.Controllers
     public class UserActionsController : Controller
     {
         public Models.UserModel User { get; set; }
+        [HttpGet]
         public IActionResult Index()
         {
             return View("UserPage", User);
         }
 
-        public int TransferMoney()
+        [HttpPost]
+        public IActionResult TransferMoney(string usernameTransfer, string amountTransfer)
         {
-            return 0;
+            return View("TransferResult",new Models.TransactionModel());
         }
     }
 }

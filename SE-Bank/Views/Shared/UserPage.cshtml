@@ -20,9 +20,13 @@
     </dl>
 </div>
 <div style="position:absolute">
-    <input type="text" name="txtFirstName" placeholder="Enter the user name " />
-    <input type="text" name="txtLastName" placeholder="Enter the sum of money" />
-    <input asp-controller="UserActions" asp-action="TransferMoney" id="Submit1" type="submit" value="Transfer money" />
+    @using (Html.BeginForm("TransferMoney","UserActions"))
+    {
+    <input type="text" name="usernameTransfer" placeholder="Enter the user name " />
+    <input type="text" name="amountTransfer" placeholder="Enter the sum of money" />
+    <input type="submit" value="Transfer money" />
+    }
+
 </div>
 
 <div>
