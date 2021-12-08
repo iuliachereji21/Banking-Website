@@ -23,7 +23,10 @@ namespace SE_Bank.Controllers
             {
                 if (myUser.IsAdmin == 0)
                 {
-                    return View("LoginSuccess", myUser);
+                    UserActionsController userActionsController = new UserActionsController();
+                    userActionsController.User = myUser;
+                    return userActionsController.Index();
+                    //return View("UserPage", myUser);
                 }
                 else { 
                     return View("AdminPage", myUser);

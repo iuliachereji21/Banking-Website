@@ -20,7 +20,10 @@ namespace SE_Bank.Controllers
             UserModel myUser = securityService.IsValidRegister(userModel);
             if (myUser != null)
             {
-                return View("LoginSuccess", myUser);
+                UserActionsController userActionsController = new UserActionsController();
+                userActionsController.User = myUser;
+                return userActionsController.Index();
+                //return View("UserPage", myUser);
             }
             else
             {
