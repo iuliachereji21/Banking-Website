@@ -1,0 +1,31 @@
+﻿@model SE_Bank.Models.UserModel
+
+<div>
+    <h4>Login Successful</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ballance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ballance)
+            <!--@Model.Ballance -->
+        </dd>
+    </dl>
+</div>
+<div style="position:absolute">
+    <input type="text" name="txtFirstName" placeholder="Enter the user name " />
+    <input type="text" name="txtLastName" placeholder="Enter the sum of money" />
+    <input asp-controller="UserActions" asp-action="TransferMoney" id="Submit1" type="submit" value="Transfer money" />
+</div>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
