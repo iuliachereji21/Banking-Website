@@ -25,5 +25,10 @@ namespace SE_Bank.Services
         {
             return usersDAO.addNewUser(user);
         }
+
+        public UserModel IsValidUsername(UserModel user)
+        {
+            return usersDAO.FindUserByUsername(user);
+        }
     }
 }
