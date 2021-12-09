@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Views\AdminActions\" />
+    <Folder Include="Views\UserActions\" />
   </ItemGroup>
 
 </Project>
