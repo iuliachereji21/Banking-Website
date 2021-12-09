@@ -1,5 +1,7 @@
 ﻿@model SE_Bank.Models.UserModel
-
+@{
+    ViewBag.LogInOut = "Log Out";
+}
 <div>
     <h4>Login Successful</h4>
     <hr />
@@ -20,16 +22,20 @@
     </dl>
 </div>
 <div style="position:absolute">
-    @using (Html.BeginForm("TransferMoney","UserActions",Model))
+    @using (Html.BeginForm("TransferMoney", "UserActions", Model))
     {
-    <input type="text" name="usernameTransfer" placeholder="Enter the user name " />
-    <input type="text" name="amountTransfer" placeholder="Enter the sum of money" />
-    <input type="submit" value="Transfer money" />
+        <input type="text" name="usernameTransfer" placeholder="Enter the user name " />
+        <input type="text" name="amountTransfer" placeholder="Enter the sum of money" />
+        <input type="submit" value="Transfer money" />
     }
 
 </div>
 
+
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
+</div>
+<div>
+    @ViewBag.TransferResultMessage
 </div>

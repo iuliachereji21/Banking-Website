@@ -11,9 +11,11 @@ namespace SE_Bank.Controllers
     public class UserActionsController : Controller
     {
         public Models.UserModel User { get; set; }
+        private string transferResultMessage = "";
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.TransferResultMessage = transferResultMessage;
             return View("UserPage", User);
         }
 
@@ -31,6 +33,11 @@ namespace SE_Bank.Controllers
                 try
                 {
                     float sum = (float)Convert.ToDouble(amountTransfer);
+                    if (sum <= 0)
+                    {
+                        transferResultMessage = "Please specify a valid amount!";
+                        return Index();
+                    }
                     if (sum<= User.Ballance)
                     {
                         //ok
@@ -43,26 +50,32 @@ namespace SE_Bank.Controllers
                         securityService.UpdateUser(User);
                         myUser.Ballance = myUser.Ballance + sum;
                         securityService.UpdateUser(myUser);
-
+                        transferResultMessage = "Transfer completed successfully!";
                         return Index();
 
                     }
                     else
                     {
                         //fail
+                        transferResultMessage = "Insufficient funds!";
+                        return Index();
                     }
                 }
                 catch
                 {
                     //fail
+                    transferResultMessage = "Amount is not a valid number!";
+                    return Index();
                 }
                 
             }
             else
             {
                 //fail
+                transferResultMessage = "Username does not exist!";
+                return Index();
             }
-            return View("TransferResult",new Models.TransactionModel());
+            //return View("TransferResult",new Models.TransactionModel());
         }
     }
 }

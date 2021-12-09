@@ -76,7 +76,7 @@ namespace SE_Bank.Services
                         {
                             userToReturn.Id = Convert.ToInt32(reader["Id"]);
                             userToReturn.UserName = user.UserName;
-                            userToReturn.Password = user.Password;
+                            userToReturn.Password = Convert.ToString(reader["Password"]); ;
                             userToReturn.Ballance = (float)Convert.ToDouble(reader["Ballance"]);
                             userToReturn.IsAdmin = Convert.ToInt32(reader["IsAdmin"]);
                         }
@@ -131,7 +131,7 @@ namespace SE_Bank.Services
             { //didn't find
                 return null;
             }
-            string sqlStatement = "update dbo.Users set UserName = '@username', Password = '@password', Ballance = '@ballance', IsAdmin = '@isadmin' where id = @id";
+            string sqlStatement = "update dbo.Users set UserName = @username, Password = @password, Ballance = @ballance, IsAdmin = @isadmin where Id = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -142,6 +142,7 @@ namespace SE_Bank.Services
                 command.Parameters.Add("@ballance", System.Data.SqlDbType.Float).Value = user.Ballance;
                 command.Parameters.Add("@isadmin", System.Data.SqlDbType.Int).Value = user.IsAdmin;
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
+                string comm = command.CommandText;
 
                 try
                 {

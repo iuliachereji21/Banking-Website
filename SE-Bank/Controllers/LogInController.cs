@@ -28,8 +28,11 @@ namespace SE_Bank.Controllers
                     return userActionsController.Index();
                     //return View("UserPage", myUser);
                 }
-                else { 
-                    return View("AdminPage", myUser);
+                else {
+                    AdminActionsController adminActionsController = new AdminActionsController();
+                    adminActionsController.User = myUser;
+                    return adminActionsController.Index();
+                    //return View("AdminPage", myUser);
                 }
             }
             else
