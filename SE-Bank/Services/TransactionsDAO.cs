@@ -67,16 +67,15 @@ namespace SE_Bank.Services
                     if (reader.HasRows)
                     {
                         //success = true;
-                        TransactionModel transactionToReturn = new TransactionModel();
+                        
                         while (reader.Read())
                         {
+                            TransactionModel transactionToReturn = new TransactionModel();
                             transactionToReturn.Id = Convert.ToInt32(reader["Id"]);
                             transactionToReturn.SenderId = Convert.ToInt32(reader["SenderId"]);
                             transactionToReturn.ReceiverId = Convert.ToInt32(reader["ReceiverId"]);
                             transactionToReturn.Amount = Convert.ToInt32(reader["Amount"]);
                             lista_tranzactii.Add(transactionToReturn);
-
-
 
                         }
                         return lista_tranzactii;
@@ -86,8 +85,6 @@ namespace SE_Bank.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
-
 
             }
             //return success;

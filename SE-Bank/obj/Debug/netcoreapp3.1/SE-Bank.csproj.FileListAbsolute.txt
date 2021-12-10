@@ -240,3 +240,4 @@ D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shar
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AdminPage.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\UserActions\TransferResult.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\Index.cshtml.g.cs
+D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\AllTransactions.cshtml.g.cs

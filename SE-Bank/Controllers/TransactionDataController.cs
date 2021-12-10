@@ -18,6 +18,16 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
             lista = securityService.selectTransactions();
             return View(lista);
         }
+
+        [HttpPost]
+        public IActionResult AllTransactions(UserModel currentUser)
+        {
+            ViewData["currentUser"] = currentUser;
+            List<TransactionModel> lista = new List<TransactionModel>();
+            SecurityService securityService = new SecurityService();
+            lista = securityService.selectTransactions();
+            return View(lista);
+        }
     }
 }
 
