@@ -30,8 +30,8 @@ namespace SE_Bank.Controllers
                 }
                 else {
                     AdminActionsController adminActionsController = new AdminActionsController();
-                    adminActionsController.User = myUser;
-                    return adminActionsController.Index();
+                    //adminActionsController.User = myUser;
+                    return adminActionsController.Index(myUser);
                     //return View("AdminPage", myUser);
                 }
             }

@@ -1,9 +1,6 @@
 ﻿@model SE_Bank.Models.UserModel
 @{
     ViewBag.LogInOut = "Log Out";
-    //ViewBag.TableVisibleAdmin = true;
-    bool nr = Convert.ToBoolean(ViewData["TableVisibleAdmin"]);
-    int x = 10;
 }
 <div>
     <h4>Admin Page</h4>
@@ -35,24 +32,11 @@
         </dd>
     </dl>
 </div>
+
 <div style="position:absolute">
-    @using (Html.BeginForm("GenerateTransactionsReport", "AdminActions", Model))
+    @using (Html.BeginForm("AllTransactions", "TransactionData", Model))
     {
-    <input type="submit" value="Generate transactions report" />
+        <input type="submit" value="Generate transactions report" />
     }
 
-</div>
-
-
-<div style="position:absolute">
-    @if(ViewBag.TableVisibleAdmin){
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>SenderId</th>
-            <th>ReceiverId</th>
-            <th>Amount</th>
-        </tr>
-    </table>
-    }
 </div>

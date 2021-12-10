@@ -10,19 +10,17 @@ namespace SE_Bank.Controllers
     public class AdminActionsController : Controller
     {
         public Models.UserModel User { get; set; }
-        private bool tableVisible = false;
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult Index(UserModel user)
         {
-            ViewBag.TableVisibleAdmin = tableVisible;
-            //ViewData["TableVisibleAdmin"] = true;
+            User = user;
             return View("AdminPage", User);
         }
-        [HttpPost]
+        
         public IActionResult GenerateTransactionsReport(UserModel currentUser)
         {
             User = currentUser;
-            tableVisible = true;
-            return Index();
+            return Index(User);
         }
     }
 }
