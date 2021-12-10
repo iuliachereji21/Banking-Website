@@ -41,5 +41,9 @@ namespace SE_Bank.Services
         {
             return transactionsDAO.addTransaction(transaction);
         }
+        public List<TransactionModel> selectTransactions()
+        {
+            return transactionsDAO.selectTransactions();
+        }
     }
 }

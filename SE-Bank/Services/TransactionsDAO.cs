@@ -40,5 +40,58 @@ namespace SE_Bank.Services
             }
             return null;
         }
+        public List<TransactionModel> selectTransactions()
+        {
+            List<TransactionModel> lista_tranzactii = new List<TransactionModel>();
+            string sqlStatement = "SELECT * FROM dbo.Transactions";
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+
+
+
+                //command.Parameters.Add("@senderid", System.Data.SqlDbType.Int).Value = id_user;
+
+
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+
+
+                    if (reader.HasRows)
+                    {
+                        //success = true;
+                        TransactionModel transactionToReturn = new TransactionModel();
+                        while (reader.Read())
+                        {
+                            transactionToReturn.Id = Convert.ToInt32(reader["Id"]);
+                            transactionToReturn.SenderId = Convert.ToInt32(reader["SenderId"]);
+                            transactionToReturn.ReceiverId = Convert.ToInt32(reader["ReceiverId"]);
+                            transactionToReturn.Amount = Convert.ToInt32(reader["Amount"]);
+                            lista_tranzactii.Add(transactionToReturn);
+
+
+
+                        }
+                        return lista_tranzactii;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+
+
+            }
+            //return success;
+            return null;
+        }
     }
 }
