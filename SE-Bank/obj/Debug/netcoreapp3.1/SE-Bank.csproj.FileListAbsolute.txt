@@ -238,3 +238,4 @@ D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Regi
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\RegisterFailure.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\UserPage.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AdminPage.cshtml.g.cs
+D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\UserActions\TransferResult.cshtml.g.cs
