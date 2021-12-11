@@ -27,9 +27,17 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
             ViewData["currentUser"] = currentUser;
             List<TransactionModel> lista = new List<TransactionModel>();
             SecurityService securityService = new SecurityService();
-            lista = securityService.selectTransactions();
+            lista = securityService.selectTransactionsWithId(currentUser.Id);
             return View(lista);
         }
+        /*public IActionResult Index2(int sender_id)
+        {
+            //int sender_id = 1;
+            List<TransactionModel> lista = new List<TransactionModel>();
+            SecurityService securityService = new SecurityService();
+            lista = securityService.selectTransactionsWithId(sender_id);
+            return View("UserTransactions",lista);
+        }*/
     }
 }
 

@@ -159,5 +159,46 @@ namespace SE_Bank.Services
             
             return null;
         }
+        public UserModel removeUser(UserModel user)
+        {
+            UserModel myUser = FindUserByUsername(user);
+            if (myUser == null)
+            { //didn't find
+                return null;
+            }
+            string sqlStatement = "DELETE FROM dbo.Users WHERE UserName = @username ";
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+
+
+
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
+                string comm = command.CommandText;
+
+
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    return FindUserByNameAndPassword(user);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+
+
+            }
+
+
+
+            return null;
+        }
     }
 }
