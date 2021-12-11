@@ -24,8 +24,7 @@ namespace SE_Bank.Controllers
                 if (myUser.IsAdmin == 0)
                 {
                     UserActionsController userActionsController = new UserActionsController();
-                    userActionsController.User = myUser;
-                    return userActionsController.Index();
+                    return userActionsController.Index(myUser);
                     //return View("UserPage", myUser);
                 }
                 else {
