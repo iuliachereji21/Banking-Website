@@ -40,3 +40,34 @@
     }
 
 </div>
+
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+
+
+
+</div>
+
+
+
+<div style="position:absolute">
+    @using (Html.BeginForm("CloseAccount", "AdminActions", Model))
+    {
+        <input type="text" name="user" placeholder="Name of Client" />
+        <input type="submit" value="Close account" />
+    }
+
+</div>
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+
+
+
+</div>
+<div>
+    @ViewBag.CloseAccountResultMessage
+</div>

@@ -50,5 +50,14 @@ namespace SE_Bank.Services
         {
             return transactionsDAO.selectTransactions();
         }
+        public List<TransactionModel> selectTransactionsWithId(int id_user)
+        {
+            return transactionsDAO.selectTransactionsWithId(id_user);
+        }
+
+        public UserModel removeUser(UserModel user)
+        {
+            return usersDAO.removeUser(user);
+        }
     }
 }
