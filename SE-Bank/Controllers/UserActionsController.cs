@@ -13,8 +13,9 @@ namespace SE_Bank.Controllers
         public Models.UserModel User { get; set; }
         private string transferResultMessage = "";
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(UserModel user)
         {
+            User = user;
             ViewBag.TransferResultMessage = transferResultMessage;
             return View("UserPage", User);
         }
@@ -36,7 +37,7 @@ namespace SE_Bank.Controllers
                     if (sum <= 0)
                     {
                         transferResultMessage = "Please specify a valid amount!";
-                        return Index();
+                        return Index(User);
                     }
                     if (sum<= User.Ballance)
                     {
@@ -51,21 +52,21 @@ namespace SE_Bank.Controllers
                         myUser.Ballance = myUser.Ballance + sum;
                         securityService.UpdateUser(myUser);
                         transferResultMessage = "Transfer completed successfully!";
-                        return Index();
+                        return Index(User);
 
                     }
                     else
                     {
                         //fail
                         transferResultMessage = "Insufficient funds!";
-                        return Index();
+                        return Index(User);
                     }
                 }
                 catch
                 {
                     //fail
                     transferResultMessage = "Amount is not a valid number!";
-                    return Index();
+                    return Index(User);
                 }
                 
             }
@@ -73,7 +74,7 @@ namespace SE_Bank.Controllers
             {
                 //fail
                 transferResultMessage = "Username does not exist!";
-                return Index();
+                return Index(User);
             }
             //return View("TransferResult",new Models.TransactionModel());
         }

@@ -21,8 +21,7 @@ namespace SE_Bank.Controllers
             if (myUser != null)
             {
                 UserActionsController userActionsController = new UserActionsController();
-                userActionsController.User = myUser;
-                return userActionsController.Index();
+                return userActionsController.Index(myUser);
                 //return View("UserPage", myUser);
             }
             else

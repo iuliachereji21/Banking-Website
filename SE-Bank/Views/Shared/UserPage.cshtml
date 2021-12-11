@@ -40,9 +40,10 @@
     @ViewBag.TransferResultMessage
 </div>
 
-<div>
-    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="TransactionData" asp-action="Index">Show Transaction History</a>
+<div style="position:absolute">
+    @using (Html.BeginForm("UserTransactions", "TransactionData", Model))
+    {
+        <input type="submit" value="See transactions history" />
+    }
+
 </div>

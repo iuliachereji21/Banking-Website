@@ -1,4 +1,6 @@
-﻿@*
+﻿@model IEnumerable<SE_Bank.Models.TransactionModel>
+
+@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -45,4 +47,12 @@
             }
         </tbody>
     </table>
+</div>
+
+<div style="position:absolute">
+    @using (Html.BeginForm("Index", "AdminActions", ViewData["currentUser"]))
+    {
+        <input type="submit" value="Back" />
+    }
+
 </div>

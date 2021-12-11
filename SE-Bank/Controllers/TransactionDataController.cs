@@ -11,8 +11,10 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
 {
     public class TransactionDataController : Controller
     {
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult AllTransactions(UserModel currentUser)
         {
+            ViewData["currentUser"] = currentUser;
             List<TransactionModel> lista = new List<TransactionModel>();
             SecurityService securityService = new SecurityService();
             lista = securityService.selectTransactions();
@@ -20,7 +22,7 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
         }
 
         [HttpPost]
-        public IActionResult AllTransactions(UserModel currentUser)
+        public IActionResult UserTransactions(UserModel currentUser)
         {
             ViewData["currentUser"] = currentUser;
             List<TransactionModel> lista = new List<TransactionModel>();
