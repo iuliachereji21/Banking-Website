@@ -78,5 +78,14 @@ namespace SE_Bank.Controllers
             }
             //return View("TransferResult",new Models.TransactionModel());
         }
+
+        [HttpPost]
+        public IActionResult UpdateUserByPassword(string new_password, UserModel currentUser)
+        {
+            User = currentUser;
+            SecurityService securityService = new SecurityService();
+            securityService.updateUserByPassword(User, new_password);
+            return Index(User);
+        }
     }
 }

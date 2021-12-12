@@ -200,5 +200,48 @@ namespace SE_Bank.Services
 
             return null;
         }
+
+        public UserModel updateUserByPassword(UserModel user, string new_password)
+        {
+            UserModel myUser = FindUserByUsername(user);
+            if (myUser == null)
+            { //didn't find
+                return null;
+            }
+            string sqlStatement = "update dbo.Users set Password = @password where Id = @id";
+
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+
+
+
+                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = new_password;
+                command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
+                string comm = command.CommandText;
+
+
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    return FindUserByNameAndPassword(user);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+
+
+            }
+
+
+
+            return null;
+        }
     }
 }
