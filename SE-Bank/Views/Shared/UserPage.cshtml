@@ -47,3 +47,25 @@
     }
 
 </div>
+
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+
+
+
+</div>
+
+
+
+<div style="position:absolute">
+    @using (Html.BeginForm("UpdateUserByPassword", "UserActions", Model))
+    {
+        <input type="text" name="new_password" placeholder="New Password" />
+        <input type="submit" value="Change Password" />
+    }
+
+
+
+</div>
