@@ -24,7 +24,24 @@ namespace SE_Bank.Controllers
             ViewBag.CloseAccountResultMessage = closeAccountResultMessage;
             return View("AdminPage", User);
         }
-        
+
+        public IActionResult Index2(string name)
+        {
+            SecurityService securityService = new SecurityService();
+            UserModel user = new UserModel();
+            user.UserName = name;
+            user = securityService.IsValidUsername(user);
+            return Index(user);
+            /*User = user;
+            if (user.IsAdmin == 0)
+            {
+                UserActionsController userActionsController = new UserActionsController();
+                return userActionsController.Index(user);
+            }
+            ViewBag.CloseAccountResultMessage = closeAccountResultMessage;
+            return View("AdminPage", User);*/
+        }
+
         public IActionResult GenerateTransactionsReport(UserModel currentUser)
         {
             User = currentUser;
