@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SE_Bank.Models;
+using SE_Bank.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,14 +18,10 @@ namespace SE_Bank.Controllers
         {
             _logger = logger;
         }
-
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string name)
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewBag.usrName = name;
             return View();
         }
 

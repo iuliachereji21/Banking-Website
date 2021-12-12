@@ -4,6 +4,7 @@
 *@
 @{
     ViewData["Title"] = "Display Data";
+    ViewBag.usrName = ((UserModel)(ViewData["currentUser"])).UserName;
     string[] TableHeaders = new string[] {"Id"
 ,"SenderId"
 ,"ReceiverId"
