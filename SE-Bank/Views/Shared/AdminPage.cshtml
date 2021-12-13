@@ -18,30 +18,21 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.UserName)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IsAdmin)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IsAdmin)
-        </dd>
     </dl>
 </div>
 
 <div style="position:absolute">
     @using (Html.BeginForm("AllTransactions", "TransactionData", Model))
     {
-        <input type="submit" value="Generate transactions report" />
+        <input type="submit" value="Generate transactions report" class="btn btn-primary" />
     }
 
 </div>
 
 <div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
     <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
     <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
     <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
@@ -56,7 +47,7 @@
     @using (Html.BeginForm("CloseAccount", "AdminActions", Model))
     {
         <input type="text" name="user" placeholder="Name of Client" />
-        <input type="submit" value="Close account" />
+        <input type="submit" value="Close account" class="btn btn-primary"/>
     }
 
 </div>

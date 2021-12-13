@@ -3,7 +3,7 @@
     ViewBag.usrName = Model.UserName;
 }
 <div>
-    <h4>User Page</h4>
+    <h4>Welcome</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -26,24 +26,34 @@
     {
         <input type="text" name="usernameTransfer" placeholder="Enter the user name " />
         <input type="text" name="amountTransfer" placeholder="Enter the sum of money" />
-        <input type="submit" value="Transfer money" />
+        <input type="submit" value="Transfer money" class="btn btn-primary" />
     }
 
 </div>
 
-
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    
 </div>
 <div>
     @ViewBag.TransferResultMessage
 </div>
 
+
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    
+
+</div>
+
 <div style="position:absolute">
     @using (Html.BeginForm("UserTransactions", "TransactionData", Model))
     {
-        <input type="submit" value="See transactions history" />
+        <input type="submit" value="See transactions history" class="btn btn-primary" />
     }
 
 </div>
@@ -57,13 +67,21 @@
 
 </div>
 
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+
+
+
+</div>
 
 
 <div style="position:absolute">
     @using (Html.BeginForm("UpdateUserByPassword", "UserActions", Model))
     {
         <input type="text" name="new_password" placeholder="New Password" />
-        <input type="submit" value="Change Password" />
+        <input type="submit" value="Change Password" class="btn btn-primary" />
     }
 
 

@@ -24,6 +24,8 @@ a {
   border-color: #1861ac;
 }
 
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -57,10 +59,44 @@ html {
   position: relative;
   min-height: 100%;
 }
-
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 70px;
+    background-image: url(pink-background.jpg);
+    background-repeat: no-repeat;
+}
+h1 {
+    color: white;
+}
+p{
+    text-align:center;
+}
+form {
+    color: white;
+}
+div {
+    color: white;
+}
+a {
+    color: white;
+}
+table {
+    color: white;
+}
+thead {
+    color: white;
+}
+tr {
+    color: white;
+}
+input[type=submit] {
+    background-color: #C461D3;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 .footer {
   position: absolute;
