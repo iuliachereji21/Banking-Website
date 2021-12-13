@@ -10,9 +10,11 @@ namespace SE_Bank.Controllers
 {
     public class RegisterController : Controller
     {
+        private string registerResult = "";
         public IActionResult Index()
         {
-            return View();
+            ViewBag.RegisterResult = registerResult;
+            return View("RegisterPage");
         }
         public IActionResult ProcessRegister(UserModel userModel)
         {
@@ -26,7 +28,8 @@ namespace SE_Bank.Controllers
             }
             else
             {
-                return View("RegisterFailure", userModel);
+                registerResult = "Username already exists";
+                return Index();
             }
         }
     }

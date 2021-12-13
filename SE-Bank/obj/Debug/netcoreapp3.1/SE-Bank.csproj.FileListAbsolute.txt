@@ -141,8 +141,6 @@ D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\ru\Microsoft.Cod
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Index.cshtml.g.cs
-D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LoginFailure.cshtml.g.cs
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -233,9 +231,9 @@ D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\win-x64
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\Index.cshtml.g.cs
-D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\RegisterFailure.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AdminPage.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\AllTransactions.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\UserTransactions.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\UserPage.cshtml.g.cs
+D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LogInPage.cshtml.g.cs
+D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\RegisterPage.cshtml.g.cs

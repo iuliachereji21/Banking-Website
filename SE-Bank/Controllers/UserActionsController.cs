@@ -12,11 +12,13 @@ namespace SE_Bank.Controllers
     {
         public Models.UserModel User { get; set; }
         private string transferResultMessage = "";
+        private string changeUsernameResultMessage = "";
         [HttpGet]
         public IActionResult Index(UserModel user)
         {
             User = user;
             ViewBag.TransferResultMessage = transferResultMessage;
+            ViewBag.ChangeUsernameResultMessage = changeUsernameResultMessage;
             return View("UserPage", User);
         }
 
@@ -85,6 +87,35 @@ namespace SE_Bank.Controllers
             User = currentUser;
             SecurityService securityService = new SecurityService();
             securityService.updateUserByPassword(User, new_password);
+            return Index(User);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateUsername(string new_username, UserModel currentUser)
+        {
+            User = currentUser;
+            SecurityService securityService = new SecurityService();
+            if(new_username == null || new_username == "")
+            {
+                changeUsernameResultMessage = "Required";
+                return Index(User);
+            }
+            UserModel existingUser = new UserModel();
+            existingUser.UserName = new_username;
+            existingUser = securityService.IsValidUsername(existingUser);
+            if (existingUser != null)
+            {
+                changeUsernameResultMessage = "Username already exists";
+                return Index(User);
+            }
+            
+            User=securityService.updateUsername(User, new_username);
+            if (User == null)
+            {
+                changeUsernameResultMessage = "Error";
+                return Index(User);
+            }
+            changeUsernameResultMessage = "Username updates successfully";
             return Index(User);
         }
     }
