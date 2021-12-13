@@ -10,9 +10,11 @@ namespace SE_Bank.Controllers
 {
     public class LogInController : Controller
     {
+        string logInResult = "";
         public IActionResult Index()
         {
-            return View();
+            ViewBag.LogInResult = logInResult;
+            return View("LogInPage");
         }
 
         public IActionResult ProcessLogin(UserModel userModel)
@@ -36,7 +38,10 @@ namespace SE_Bank.Controllers
             }
             else
             {
-                return View("LoginFailure", userModel);
+                logInResult = "Failed to log in";
+                return Index();
+                //return View("LoginFailure", userModel);
+                
             }
         }
     }

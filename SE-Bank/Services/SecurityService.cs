@@ -64,5 +64,9 @@ namespace SE_Bank.Services
         {
             return usersDAO.updateUserByPassword(user, new_password);
         }
+        public UserModel updateUsername(UserModel user, string new_username)
+        {
+            return usersDAO.updateUsername(user, new_username);
+        }
     }
 }
