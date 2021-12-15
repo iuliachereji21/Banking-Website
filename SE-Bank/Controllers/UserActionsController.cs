@@ -13,12 +13,14 @@ namespace SE_Bank.Controllers
         public Models.UserModel User { get; set; }
         private string transferResultMessage = "";
         private string changeUsernameResultMessage = "";
+        private string changePasswordResultMessage = "";
         [HttpGet]
         public IActionResult Index(UserModel user)
         {
             User = user;
             ViewBag.TransferResultMessage = transferResultMessage;
             ViewBag.ChangeUsernameResultMessage = changeUsernameResultMessage;
+            ViewBag.ChangePasswordResultMessage = changePasswordResultMessage;
             return View("UserPage", User);
         }
 
@@ -81,12 +83,29 @@ namespace SE_Bank.Controllers
             //return View("TransferResult",new Models.TransactionModel());
         }
 
+
         [HttpPost]
-        public IActionResult UpdateUserByPassword(string new_password, UserModel currentUser)
+        public IActionResult UpdateUserByPassword(string new_password, string old_password, UserModel currentUser)
         {
             User = currentUser;
             SecurityService securityService = new SecurityService();
-            securityService.updateUserByPassword(User, new_password);
+            if(old_password==null || old_password == "")
+            {
+                changePasswordResultMessage = "Old password required";
+                return Index(User);
+            }
+            if (new_password == null || new_password == "")
+            {
+                changePasswordResultMessage = "New password required";
+                return Index(User);
+            }
+            if (String.Equals(old_password, User.Password))
+            {
+                User= securityService.updateUserByPassword(User, new_password);
+                changePasswordResultMessage = "Password updated successfully";
+                return Index(User);
+            }
+            else changePasswordResultMessage = "Incorrect old password";
             return Index(User);
         }
 

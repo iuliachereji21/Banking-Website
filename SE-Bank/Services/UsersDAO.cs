@@ -18,7 +18,6 @@ namespace SE_Bank.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
                 command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
                 command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = user.Password;
 
@@ -60,14 +59,14 @@ namespace SE_Bank.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
+                int usrLength = user.UserName.Length;
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, usrLength).Value = user.UserName;
 
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-
+                    string comm = command.CommandText;
                     if (reader.HasRows)
                     {
                         //success = true;
@@ -76,7 +75,11 @@ namespace SE_Bank.Services
                         {
                             userToReturn.Id = Convert.ToInt32(reader["Id"]);
                             userToReturn.UserName = user.UserName;
-                            userToReturn.Password = Convert.ToString(reader["Password"]); ;
+                            userToReturn.Password = Convert.ToString(reader["Password"]);
+                            string pass = userToReturn.Password;
+
+                            userToReturn.Password = (string)reader["Password"];
+                            pass = userToReturn.Password;
                             userToReturn.Ballance = (float)Convert.ToDouble(reader["Ballance"]);
                             userToReturn.IsAdmin = Convert.ToInt32(reader["IsAdmin"]);
                         }
@@ -105,9 +108,10 @@ namespace SE_Bank.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
-                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = user.Password;
+                int usrL = user.UserName.Length;
+                int pasL = user.Password.Length;
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, usrL).Value = user.UserName;
+                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, pasL).Value = user.Password;
 
                 try
                 {
@@ -217,7 +221,6 @@ namespace SE_Bank.Services
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
 
 
-
                 command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = new_password;
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
                 string comm = command.CommandText;
@@ -228,18 +231,16 @@ namespace SE_Bank.Services
                 {
                     connection.Open();
                     command.ExecuteNonQuery();
-                    return FindUserByNameAndPassword(user);
+                    myUser = FindUserByUsername(user);
+                    myUser.Password = new_password;
+                    return myUser;
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
 
-
-
             }
-
-
 
             return null;
         }
