@@ -13,7 +13,7 @@
             @Html.DisplayFor(model => model.UserName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ballance)
+            Balance
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Ballance)
@@ -76,14 +76,21 @@
 
 </div>
 
-
 <div style="position:absolute">
     @using (Html.BeginForm("UpdateUserByPassword", "UserActions", Model))
     {
-        <input type="text" name="new_password" placeholder="New Password" />
-        <input type="submit" value="Change Password" class="btn btn-primary" />
+        <input type="password" name="new_password" placeholder="New Password" />
+        <input type="password" name="old_password" placeholder="Old Password" />
+        <input type="submit" value="Change Password"  class="btn btn-primary"/>
     }
-
+</div>
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Index"></a>
+</div>
+<div>
+    @ViewBag.ChangePasswordResultMessage
 </div>
 
 <div>
