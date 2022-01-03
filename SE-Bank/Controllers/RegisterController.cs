@@ -24,7 +24,6 @@ namespace SE_Bank.Controllers
             {
                 UserActionsController userActionsController = new UserActionsController();
                 return userActionsController.Index(myUser);
-                //return View("UserPage", myUser);
             }
             else
             {

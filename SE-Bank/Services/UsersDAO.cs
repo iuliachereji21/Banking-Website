@@ -9,10 +9,9 @@ namespace SE_Bank.Services
 {
     public class UsersDAO
     {
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\FACULTATE\AN3SEM1\SE\SE-BANK\SE-BANK\DATABASE\BANK_DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\FACULTATE\AN3SEM1\SE\SE-BANK\SE-BANK\DATABASE\BANK_DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public UserModel FindUserByNameAndPassword(UserModel user)
-        {
-            //bool success = false;
+        {//used for log in
             string sqlStatement = "SELECT * FROM dbo.Users WHERE UserName=@username AND Password=@password";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -52,8 +51,9 @@ namespace SE_Bank.Services
         }
 
         public UserModel FindUserByUsername(UserModel user)
-        {
-            //bool success = false;
+        {//used when a user wants to update it's username
+         //used when a user wants to transfer money, to check if the inserted username exists
+         
             string sqlStatement = "SELECT * FROM dbo.Users WHERE UserName=@username";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -97,7 +97,7 @@ namespace SE_Bank.Services
         }
 
         public UserModel addNewUser(UserModel user)
-        {
+        { //used for register
             UserModel myUser = FindUserByUsername(user);
             if (myUser != null)
             { //already exists
@@ -129,7 +129,7 @@ namespace SE_Bank.Services
             return null;
         }
         public UserModel updateUser(UserModel user)
-        {
+        {//used to update the user after the transfer is successful
             UserModel myUser = FindUserByUsername(user);
             if (myUser == null)
             { //didn't find
@@ -164,7 +164,7 @@ namespace SE_Bank.Services
             return null;
         }
         public UserModel removeUser(UserModel user)
-        {
+        {//when an admin delets an user
             UserModel myUser = FindUserByUsername(user);
             if (myUser == null)
             { //didn't find
@@ -172,19 +172,11 @@ namespace SE_Bank.Services
             }
             string sqlStatement = "DELETE FROM dbo.Users WHERE UserName = @username ";
 
-
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-
-
                 command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
                 string comm = command.CommandText;
-
-
-
                 try
                 {
                     connection.Open();
@@ -195,38 +187,24 @@ namespace SE_Bank.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
-
-
             }
-
-
-
             return null;
         }
 
         public UserModel updateUserByPassword(UserModel user, string new_password)
-        {
+        {//update user's password
             UserModel myUser = FindUserByUsername(user);
             if (myUser == null)
             { //didn't find
                 return null;
             }
             string sqlStatement = "update dbo.Users set Password = @password where Id = @id";
-
-
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-
                 command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = new_password;
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
                 string comm = command.CommandText;
-
-
-
                 try
                 {
                     connection.Open();
@@ -239,35 +217,24 @@ namespace SE_Bank.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
             }
-
             return null;
         }
 
         public UserModel updateUsername(UserModel user, string new_username)
-        {
+        {//update user's username
             UserModel myUser = FindUserByUsername(user);
             if (myUser == null)
             { //didn't find
                 return null;
             }
             string sqlStatement = "update dbo.Users set UserName = @username where Id = @id";
-
-
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-
-
                 command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = new_username;
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = user.Id;
                 string comm = command.CommandText;
-
-
-
                 try
                 {
                     connection.Open();
@@ -279,13 +246,7 @@ namespace SE_Bank.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
-
-
             }
-
-
-
             return null;
         }
     }

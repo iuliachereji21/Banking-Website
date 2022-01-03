@@ -13,7 +13,7 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
     {
         [HttpPost]
         public IActionResult AllTransactions(UserModel currentUser)
-        {
+        { //get to all transactions page from admin page
             ViewData["currentUser"] = currentUser;
             List<TransactionModel> lista = new List<TransactionModel>();
             SecurityService securityService = new SecurityService();
@@ -23,21 +23,13 @@ using SE_Bank.Services;namespace SE_Bank.Controllers
 
         [HttpPost]
         public IActionResult UserTransactions(UserModel currentUser)
-        {
+        { //get to user's specific transactions from user page
             ViewData["currentUser"] = currentUser;
             List<TransactionModel> lista = new List<TransactionModel>();
             SecurityService securityService = new SecurityService();
             lista = securityService.selectTransactionsWithId(currentUser.Id);
             return View(lista);
         }
-        /*public IActionResult Index2(int sender_id)
-        {
-            //int sender_id = 1;
-            List<TransactionModel> lista = new List<TransactionModel>();
-            SecurityService securityService = new SecurityService();
-            lista = securityService.selectTransactionsWithId(sender_id);
-            return View("UserTransactions",lista);
-        }*/
     }
 }
 

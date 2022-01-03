@@ -9,9 +9,9 @@ namespace SE_Bank.Services
 {
     public class TransactionsDAO
     {
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\FACULTATE\AN3SEM1\SE\SE-BANK\SE-BANK\DATABASE\BANK_DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\FACULTATE\AN3SEM1\SE\SE-BANK\SE-BANK\DATABASE\BANK_DATABASE.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public TransactionModel addTransaction(TransactionModel transaction)
-        {
+        { //adds a new transaction to the database
             string sqlStatement = "insert into dbo.Transactions (SenderId, ReceiverId, Amount) values (@senderid, @receiverid, @amount)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -41,7 +41,7 @@ namespace SE_Bank.Services
             return null;
         }
         public List<TransactionModel> selectTransactions()
-        {
+        {//gets all transactions from the database
             List<TransactionModel> lista_tranzactii = new List<TransactionModel>();
             string sqlStatement = "SELECT * FROM dbo.Transactions";
 
@@ -50,12 +50,6 @@ namespace SE_Bank.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
-
-
-                //command.Parameters.Add("@senderid", System.Data.SqlDbType.Int).Value = id_user;
-
-
 
                 try
                 {
@@ -92,7 +86,7 @@ namespace SE_Bank.Services
         }
 
         public List<TransactionModel> selectTransactionsWithId(int id_sender)
-        {
+        { //gets all transactions for a user
             List<TransactionModel> lista_tranzactii = new List<TransactionModel>();
             string sqlStatement = "SELECT * FROM dbo.Transactions where SenderId=@id";
 
@@ -146,9 +140,6 @@ namespace SE_Bank.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
-
-
 
 
             }

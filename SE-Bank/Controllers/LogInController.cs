@@ -10,7 +10,7 @@ namespace SE_Bank.Controllers
 {
     public class LogInController : Controller
     {
-        string logInResult = "";
+        private string logInResult = "";
         public IActionResult Index()
         {
             ViewBag.LogInResult = logInResult;
@@ -27,21 +27,16 @@ namespace SE_Bank.Controllers
                 {
                     UserActionsController userActionsController = new UserActionsController();
                     return userActionsController.Index(myUser);
-                    //return View("UserPage", myUser);
                 }
                 else {
                     AdminActionsController adminActionsController = new AdminActionsController();
-                    //adminActionsController.User = myUser;
                     return adminActionsController.Index(myUser);
-                    //return View("AdminPage", myUser);
                 }
             }
             else
             {
                 logInResult = "Failed to log in";
                 return Index();
-                //return View("LoginFailure", userModel);
-                
             }
         }
     }
