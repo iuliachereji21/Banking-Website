@@ -25,7 +25,7 @@ namespace SE_Bank.Controllers
         }
 
         [HttpPost]
-        public IActionResult TransferMoney(string usernameTransfer, string amountTransfer, string usernameCurrentUser,UserModel currentUser)
+        public IActionResult TransferMoney(string usernameTransfer, string amountTransfer,UserModel currentUser)
         {
             User = currentUser;
             SecurityService securityService = new SecurityService();
@@ -57,7 +57,6 @@ namespace SE_Bank.Controllers
                         securityService.UpdateUser(myUser);
                         transferResultMessage = "Transfer completed successfully!";
                         return Index(User);
-
                     }
                     else
                     {
@@ -72,7 +71,6 @@ namespace SE_Bank.Controllers
                     transferResultMessage = "Amount is not a valid number!";
                     return Index(User);
                 }
-                
             }
             else
             {
@@ -80,7 +78,6 @@ namespace SE_Bank.Controllers
                 transferResultMessage = "Username does not exist!";
                 return Index(User);
             }
-            //return View("TransferResult",new Models.TransactionModel());
         }
 
 

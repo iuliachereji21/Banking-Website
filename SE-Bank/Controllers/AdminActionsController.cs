@@ -14,7 +14,7 @@ namespace SE_Bank.Controllers
         private string closeAccountResultMessage = "";
         [HttpPost]
         public IActionResult Index(UserModel user)
-        {
+        { //get to admin page from log in
             User = user;
             if (user.IsAdmin == 0)
             {
@@ -26,20 +26,12 @@ namespace SE_Bank.Controllers
         }
 
         public IActionResult Index2(string name)
-        {
+        { //get to admin page from home page
             SecurityService securityService = new SecurityService();
             UserModel user = new UserModel();
             user.UserName = name;
             user = securityService.IsValidUsername(user);
             return Index(user);
-            /*User = user;
-            if (user.IsAdmin == 0)
-            {
-                UserActionsController userActionsController = new UserActionsController();
-                return userActionsController.Index(user);
-            }
-            ViewBag.CloseAccountResultMessage = closeAccountResultMessage;
-            return View("AdminPage", User);*/
         }
 
         public IActionResult GenerateTransactionsReport(UserModel currentUser)
@@ -71,9 +63,6 @@ namespace SE_Bank.Controllers
                     closeAccountResultMessage = "Close account failed!";
                     return Index(User);
                 }
-
-
-
             }
             else
             {
@@ -81,8 +70,6 @@ namespace SE_Bank.Controllers
                 closeAccountResultMessage = "Username does not exist!";
                 return Index(User);
             }
-            //return View("TransferResult",new Models.TransactionModel());
-
         }
     }
 }
