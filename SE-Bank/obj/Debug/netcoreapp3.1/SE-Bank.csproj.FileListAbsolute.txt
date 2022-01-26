@@ -53,7 +53,6 @@ D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\SE-Bank.TagHelpers.input.c
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\SE-Bank.TagHelpers.output.cache
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\SE-Bank.RazorCoreGenerate.cache
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -214,9 +213,6 @@ D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Index.cshtml.g.cs
-D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LoginFailure.cshtml.g.cs
-D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LoginSuccess.cshtml.g.cs
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 D:\se\SE-bank\SE-Bank\SE-Bank\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
@@ -237,3 +233,10 @@ D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Tran
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\UserPage.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LogInPage.cshtml.g.cs
 D:\FACULTATE\AN3SEM1\SE\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\RegisterPage.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\LogInPage.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Register\RegisterPage.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AdminPage.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\Shared\UserPage.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\AllTransactions.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\Index2.cshtml.g.cs
+D:\se\SE-bank\SE-Bank\SE-Bank\obj\Debug\netcoreapp3.1\Razor\Views\TransactionData\UserTransactions.cshtml.g.cs

@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Display Data";
+    string[] TableHeaders = new string[] {"Id"
+,"SenderId"
+,"ReceiverId"
+,"Amount"};
+}
+
+
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach (var head in TableHeaders)
+                    {
+                        <th>
+                            @head
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+
+
+
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.Id</td>
+                            <td>@Data.SenderId</td>
+                            <td>@Data.ReceiverId</td>
+                            <td>@Data.Amount</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
